@@ -92,6 +92,12 @@ export default defineComponent({
     }
 })
 </script>
+<style>
+#app {
+    height: 100%;
+    width: 100%;
+}
+</style>
 <style lang="less" scoped>
 html, body{
     height: 100%;
@@ -104,10 +110,7 @@ html, body{
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
 }
-#app {
-    height: 100%;
-    width: 100%;
-}
+
 /deep/ .aside {
     // width: 220px;
     height: 100%;
