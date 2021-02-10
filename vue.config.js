@@ -1,7 +1,3 @@
-const path = require("path");
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
 module.exports = {
   publicPath: `/web-model`,
   css: {
@@ -17,27 +13,11 @@ module.exports = {
     hotOnly: false,
     compress: true,
     proxy: {
-      // '/ehrService': {
-      //     target: 'http://localapi.natapp1.cc',
-      //     changeOrigin: true
-      // },
       "/ehrService": {
         target: "http://www.kkdev.cn/",
-        changeOrigin: true
+        changeOrigin: true,
+        ws: false
       }
-      // '/ehrService': {
-      //   target: 'http://172.20.200.110:8080',
-      //   changeOrigin: true
-      // }
     }
-  },
-  chainWebpack: config => {
-    config.resolve.alias
-      .set("@", resolve("./src"))
-      .set("assets", resolve("./src/assets"))
-      .set("components", resolve("./src/components"))
-      .set("plugins", resolve("./src/plugins"))
-      .set("api", resolve("./src/api"))
-      .set("views", resolve("./src/views"));
   }
-};
+}
