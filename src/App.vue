@@ -6,7 +6,7 @@ import Menu from './components/Menu.vue'
 import { defineComponent } from 'vue'
 export default defineComponent({
     components: {
-        Menu
+        Menu,
     }
 })
 </script>

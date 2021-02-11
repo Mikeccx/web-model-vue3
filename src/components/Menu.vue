@@ -1,7 +1,11 @@
 <script lang="jsx">
+import PageHeader from '@/components/PageHeader.vue'
 import { defineComponent, computed, ref, getCurrentInstance, withScopeId } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
+    components: {
+        PageHeader
+    },
     setup() {
         const instance = getCurrentInstance()
         const scopeId = instance.type.__scopeId
@@ -83,7 +87,8 @@ export default defineComponent({
                         </div>
                         <el-container>
                             <el-main class="main">
-                                <router-view></router-view>
+                                <page-header title='标题'></page-header>
+                                <router-view class="view-wraper"></router-view>
                             </el-main>
                         </el-container>
                     </el-container>
@@ -155,9 +160,9 @@ export default defineComponent({
 /deep/ .el-main {
     padding: 0;
 }
-// .main {
-//     // height: calc(100% - 61px);
-// }
+.main {
+    // height: calc(100% - 61px);
+}
 /deep/ .el-menu {
     border: none;
 }
