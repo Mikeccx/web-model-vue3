@@ -2,20 +2,30 @@
     <section class="header-wraper">
         <div class="left">
             <!-- <span>&lt;</span> -->
-            {{title}}
+            <svg class="icon" aria-hidden="true" v-show="isBack">
+                <use xlink:href="#icon-houtui"></use>
+            </svg>
+            <span>{{title}}</span>
         </div>
         <div class="right"></div>
     </section>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
+import { useRoute } from 'vue-router'
 export default defineComponent({
     props: {
         title: String
     },
     setup() {
+        const route = useRoute()
+        const isBack = computed(() => {
+            const isRoot = route.path.indexOf('/') === route.path.lastIndexOf('/')
+            return !isRoot
+        })
         return {
+            isBack
         }
     }
 })
@@ -32,5 +42,15 @@ export default defineComponent({
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .left {
+            display: flex;
+            align-items: center;
+            .icon {
+                height: 32px;
+                width: 32px;
+                cursor: pointer;
+                padding-right: 10px;
+            }
+        }
     }
 </style>
