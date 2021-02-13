@@ -2,7 +2,7 @@
     <section class="header-wraper">
         <div class="left">
             <!-- <span>&lt;</span> -->
-            <svg class="icon" aria-hidden="true" v-show="isBack">
+            <svg class="icon" aria-hidden="true" v-show="isBack" @click="goBack">
                 <use xlink:href="#icon-houtui"></use>
             </svg>
             <span>{{title}}</span>
@@ -13,19 +13,24 @@
 
 <script>
 import { defineComponent, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
     props: {
         title: String
     },
     setup() {
         const route = useRoute()
+        const router = useRouter()
         const isBack = computed(() => {
             const isRoot = route.path.indexOf('/') === route.path.lastIndexOf('/')
             return !isRoot
         })
+        const goBack = () => {
+            router.go(-1)
+        }
         return {
-            isBack
+            isBack,
+            goBack
         }
     }
 })
@@ -47,7 +52,7 @@ export default defineComponent({
             align-items: center;
             .icon {
                 height: 32px;
-                width: 32px;
+                width: 20px;
                 cursor: pointer;
                 padding-right: 10px;
             }
