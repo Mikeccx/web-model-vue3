@@ -20,7 +20,6 @@ const routes: Array<RouteRecordRaw> = [
         icon: 'el-icon-document',
         rname: '家家',
         menu: true,
-
     }
   },
   {

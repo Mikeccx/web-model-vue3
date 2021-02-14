@@ -101,6 +101,10 @@ export default defineComponent({
 .page-wraper {
     height: 100%;
     width: 100%;
+    /deep/ .el-container {
+        height: 100%;
+        overflow: hidden;
+    }
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
@@ -159,9 +163,16 @@ export default defineComponent({
 }
 /deep/ .el-main {
     padding: 0;
-}
-.main {
-    // height: calc(100% - 61px);
+    overflow: hidden;
+    background: #f8f9fb;
+
+    /deep/ .view-wraper {
+        height: calc(100% - 100px);
+        margin: 20px;
+        background: #fff;
+        box-shadow: 0 1px 6px 0 rgb(49 114 149 / 10%);
+        border-radius: 4px;
+    }
 }
 /deep/ .el-menu {
     border: none;

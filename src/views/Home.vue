@@ -1,19 +1,16 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="home-wraper">
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-@Options({
-  components: {
-  },
-})
-export default class Home extends Vue {
+import { defineComponent } from 'vue'
+export default defineComponent({
 
-}
+})
 </script>
-<style scoped>
+<style lang="less" scoped>
+.home-wraper {
+    height: 100%;
+}
 </style>
