@@ -1,6 +1,6 @@
 <script lang="jsx">
 import PageHeader from '@/components/PageHeader.vue'
-import { defineComponent, computed, ref, getCurrentInstance, withScopeId } from 'vue'
+import { defineComponent, ref, getCurrentInstance, withScopeId, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
     components: {
@@ -16,10 +16,10 @@ export default defineComponent({
         const systemName = 'test'
         const route = useRoute()
         const router = useRouter()
-        const activeTitle = computed(() => {
-            return '/' + route.path.split('/')[1]
-        }).value
-        
+        const activeTitle = ref('')
+        watch(() => {
+            activeTitle.value = '/' + route.path.split('/')[1]
+        })
         const getItem = (list) => {
             if (!list) return []
             return list.map(i => {
@@ -77,7 +77,7 @@ export default defineComponent({
                                 )}
                             </div>
                             <el-menu
-                                default-active={activeTitle}
+                                default-active={activeTitle.value}
                                 class="el-menu-vertical-demo"
                                 router
                                 collapse={isCollapse.value}
