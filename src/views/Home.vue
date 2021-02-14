@@ -1,5 +1,6 @@
 <template>
   <div class="home-wraper">
+      <div class="test"></div>
   </div>
 </template>
 
@@ -11,6 +12,5 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .home-wraper {
-    height: 100%;
 }
 </style>

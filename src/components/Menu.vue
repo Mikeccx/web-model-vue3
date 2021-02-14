@@ -172,6 +172,7 @@ export default defineComponent({
         background: #fff;
         box-shadow: 0 1px 6px 0 rgb(49 114 149 / 10%);
         border-radius: 4px;
+        overflow: auto;
     }
 }
 /deep/ .el-menu {
