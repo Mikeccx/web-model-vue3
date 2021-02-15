@@ -21,29 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         rname: '家家',
         menu: true,
     }
-  },
-  {
-    path: '/about2',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    meta: {
-        icon: 'el-icon-document',
-        rname: '家家家',
-        menu: true,
-
-    }
-  },
-  {
-    path: '/about3',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    meta: {
-        icon: 'el-icon-document',
-        rname: '家家家家',
-        menu: true,
-
-    }
-  },
+  }
 ]
 
 const router = createRouter({

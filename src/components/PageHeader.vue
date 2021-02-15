@@ -15,9 +15,6 @@
 import { defineComponent, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
-    props: {
-        title: String
-    },
     setup() {
         const route = useRoute()
         const router = useRouter()
@@ -28,9 +25,14 @@ export default defineComponent({
         const goBack = () => {
             router.go(-1)
         }
+        const title = computed(() => {
+            console.error('2222', router?.currentRoute?.value?.meta?.rname)
+            return router?.currentRoute?.value?.meta?.rname
+        })
         return {
             isBack,
-            goBack
+            goBack,
+            title
         }
     }
 })
