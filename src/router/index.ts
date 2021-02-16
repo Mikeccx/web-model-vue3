@@ -10,16 +10,24 @@ const routes: Array<RouteRecordRaw> = [
         icon: 'el-icon-document',
         rname: '家',
         menu: true,
+        // button: [{
+        //     optName: '查询1',
+        //     functionName: 'search'
+        // }]
     }
   },
   {
-    path: '/about1',
+    path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     meta: {
         icon: 'el-icon-document',
         rname: '家家',
         menu: true,
+        button: [{
+            optName: '查询',
+            functionName: 'search'
+        }]
     }
   }
 ]

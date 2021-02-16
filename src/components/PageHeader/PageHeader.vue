@@ -7,14 +7,25 @@
             </svg>
             <span>{{title}}</span>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <el-button v-for="item in options" :key="item" @click="funExecute(item.functionName)">
+                {{item.optName}}
+            </el-button>
+        </div>
     </section>
 </template>
 
 <script>
 import { defineComponent, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import buttonOptions from './utils'
 export default defineComponent({
+    methods: {
+        ...buttonOptions(),
+        funExecute(fn) {
+            this[fn]()
+        }
+    },
     setup() {
         const route = useRoute()
         const router = useRouter()
@@ -22,17 +33,25 @@ export default defineComponent({
             const isRoot = route.path.indexOf('/') === route.path.lastIndexOf('/')
             return !isRoot
         })
+        // const search = () => {
+        //     console.error('ssss')
+        // }
+        
         const goBack = () => {
             router.go(-1)
         }
+        const options = computed(() => {
+            return router?.currentRoute?.value?.meta?.button
+        })
         const title = computed(() => {
-            console.error('2222', router?.currentRoute?.value?.meta?.rname)
             return router?.currentRoute?.value?.meta?.rname
         })
         return {
             isBack,
             goBack,
-            title
+            title,
+            options
+            // search
         }
     }
 })

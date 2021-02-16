@@ -1,5 +1,5 @@
 <script lang="jsx">
-import PageHeader from '@/components/PageHeader.vue'
+import PageHeader from '@/components/PageHeader/PageHeader.vue'
 import { defineComponent, ref, getCurrentInstance, withScopeId, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
