@@ -24,6 +24,7 @@ const routes: Array<RouteRecordRaw> = [
         icon: 'el-icon-document',
         rname: '家家',
         menu: true,
+        // pageheader右上角按钮
         button: [{
             optName: '查询',
             functionName: 'search'
